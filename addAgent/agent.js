@@ -29,35 +29,23 @@ function handleSubmit(event) {
 function validateForm() {
     let isValid = true;
 
-    if (nameInput.value.length < 2) {
-        showError(nameInput, 'სახელი უნდა მოიცავდეს მინიმუმ 2 სიმბოლოს');
-        isValid = false;
-    } else {
-        resetError(nameInput);
+    function validateField(input, condition, errorMessage) {
+        if (!condition) {
+            showError(input, errorMessage);
+            isValid = false;
+        } else {
+            resetError(input);
+        }
     }
 
-    if (surnameInput.value.length < 2) {
-        showError(surnameInput, 'გვარი უნდა მოიცავდეს მინიმუმ 2 სიმბოლოს');
-        isValid = false;
-    } else {
-        resetError(surnameInput);
-    }
+    validateField(nameInput, nameInput.value.length >= 2, 'სახელი უნდა მოიცავდეს მინიმუმ 2 სიმბოლოს');
+    validateField(surnameInput, surnameInput.value.length >= 2, 'გვარი უნდა მოიცავდეს მინიმუმ 2 სიმბოლოს');
 
     const emailRegex = /@redberry\.ge$/;
-    if (!emailRegex.test(emailInput.value)) {
-        showError(emailInput, 'ელ. ფოსტა უნდა დასრულდეს @redberry.ge-თ');
-        isValid = false;
-    } else {
-        resetError(emailInput);
-    }
+    validateField(emailInput, emailRegex.test(emailInput.value), 'ელ. ფოსტა უნდა დასრულდეს @redberry.ge-თ');
 
     const phoneRegex = /^5\d{8}$/;
-    if (!phoneRegex.test(phoneInput.value)) {
-        showError(phoneInput, 'ტელეფონის ნომერი უნდა იყოს ფორმატში 5XXXXXXXXX');
-        isValid = false;
-    } else {
-        resetError(phoneInput);
-    }
+    validateField(phoneInput, phoneRegex.test(phoneInput.value), 'ტელეფონის ნომერი უნდა იყოს ფორმატში 5XXXXXXXXX');
 
     if (avatarInput.files.length === 0) {
         showError(avatarInput, 'გთხოვთ აირჩიოთ ფოტო');
@@ -68,6 +56,39 @@ function validateForm() {
 
     return isValid;
 }
+
+
+function showError(input, message) {
+    input.style.borderColor = 'red';
+    let errorElement = input.nextElementSibling;
+    if (!errorElement || !errorElement.classList.contains('error-message')) {
+        errorElement = document.createElement('div');
+        errorElement.classList.add('error-message');
+        input.parentNode.insertBefore(errorElement, input.nextSibling);
+    }
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+function resetError(input) {
+    input.style.borderColor = '';
+    const errorElement = input.nextElementSibling;
+    if (errorElement && errorElement.classList.contains('error-message')) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+    }
+}
+
+[nameInput, surnameInput, emailInput, phoneInput].forEach(input => {
+    input.addEventListener('input', () => {
+        validateForm();
+    });
+});
+
+avatarInput.addEventListener('change', () => {
+    handleImageUpload({ target: avatarInput });
+    validateForm();
+});
 
 function handleImageUpload(event) {
     const file = event.target.files[0];
@@ -80,21 +101,7 @@ function handleImageUpload(event) {
         }
         reader.readAsDataURL(file);
     }
-}
-
-function showError(input, message) {
-    const errorElement = input.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-    }
-}
-
-function resetError(input) {
-    const errorElement = input.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
-        errorElement.style.display = 'none';
-    }
+    validateForm();
 }
 
 function createAgentFormData() {

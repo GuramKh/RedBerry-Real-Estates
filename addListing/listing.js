@@ -70,18 +70,6 @@ function populateRegionSelect(regions) {
     });
 }
 
-function handleImageUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            imagePreview.style.display = 'block';
-            imagePreview.src = e.target.result;
-            uploadIcon.style.display = 'none';
-        }
-        reader.readAsDataURL(file);
-    }
-}
 
 function handleRegionChange() {
     const selectedRegionId = regionSelect.value;
@@ -135,15 +123,19 @@ function handleSubmit(event) {
 function validateForm() {
     let isValid = true;
 
-    if (addressInput.value.length < 2) {
-        showError(addressInput, 'მისამართი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს');
-        isValid = false;
-    } else {
-        resetError(addressInput);
+    function validateField(input, condition, errorMessage) {
+        if (!condition) {
+            showError(input, errorMessage);
+            isValid = false;
+        } else {
+            resetError(input);
+        }
     }
 
+    validateField(addressInput, addressInput.value.length >= 2, 'მისამართი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს');
+
     if (imageInput.files.length === 0) {
-        showError(imageInput, 'გთხოვთ აირჩიოთ ფოტო');
+        showError(imageInput, 'გთხოვთ აირჩიოთ სურათი');
         isValid = false;
     } else {
         const file = imageInput.files[0];
@@ -158,79 +150,30 @@ function validateForm() {
         }
     }
 
-    if (!regionSelect.value) {
-        showError(regionSelect, 'გთხოვთ აირჩიოთ რეგიონი');
-        isValid = false;
-    } else {
-        resetError(regionSelect);
-    }
-
-    if (!citySelect.value) {
-        showError(citySelect, 'გთხოვთ აირჩიოთ ქალაქი');
-        isValid = false;
-    } else {
-        resetError(citySelect);
-    }
-
-    if (!/^\d+$/.test(zipCodeInput.value)) {
-        showError(zipCodeInput, 'საფოსტო ინდექსი უნდა შეიცავდეს მხოლოდ რიცხვებს');
-        isValid = false;
-    } else {
-        resetError(zipCodeInput);
-    }
-
-    if (!/^\d+$/.test(priceInput.value)) {
-        showError(priceInput, 'ფასი უნდა შეიცავდეს მხოლოდ რიცხვებს');
-        isValid = false;
-    } else {
-        resetError(priceInput);
-    }
-
-    if (!/^\d+$/.test(areaInput.value)) {
-        showError(areaInput, 'ფართობი უნდა შეიცავდეს მხოლოდ რიცხვებს');
-        isValid = false;
-    } else {
-        resetError(areaInput);
-    }
-
-    if (!/^\d+$/.test(bedroomInput.value) || parseFloat(bedroomInput.value) % 1 !== 0) {
-        showError(bedroomInput, 'საძინებლების რაოდენობა უნდა იყოს მთელი რიცხვი');
-        isValid = false;
-    } else {
-        resetError(bedroomInput);
-    }
-
-    if (descriptionInput.value.trim().split(/\s+/).length < 5) {
-        showError(descriptionInput, 'აღწერა უნდა შეიცავდეს მინიმუმ 5 სიტყვას');
-        isValid = false;
-    } else {
-        resetError(descriptionInput);
-    }
-
-    if (!Array.from(transactionTypeInputs).some(input => input.checked)) {
-        showError(transactionTypeInputs[0], 'გთხოვთ აირჩიოთ გაყიდვა ან გაქირავება');
-        isValid = false;
-    } else {
-        resetError(transactionTypeInputs[0]);
-    }
-
-    if (!agentSelect.value) {
-        showError(agentSelect, 'გთხოვთ აირჩიოთ აგენტი');
-        isValid = false;
-    } else {
-        resetError(agentSelect);
-    }
+    validateField(regionSelect, regionSelect.value, 'გთხოვთ აირჩიოთ რეგიონი');
+    validateField(citySelect, citySelect.value, 'გთხოვთ აირჩიოთ ქალაქი');
+    validateField(zipCodeInput, /^\d+$/.test(zipCodeInput.value), 'საფოსტო ინდექსი უნდა შეიცავდეს მხოლოდ რიცხვებს');
+    validateField(priceInput, /^\d+$/.test(priceInput.value), 'ფასი უნდა შეიცავდეს მხოლოდ რიცხვებს');
+    validateField(areaInput, /^\d+$/.test(areaInput.value), 'ფართობი უნდა შეიცავდეს მხოლოდ რიცხვებს');
+    validateField(bedroomInput, /^\d+$/.test(bedroomInput.value) && parseFloat(bedroomInput.value) % 1 === 0, 'საძინებლების რაოდენობა უნდა იყოს მთელი რიცხვი');
+    validateField(descriptionInput, descriptionInput.value.trim().split(/\s+/).length >= 5, 'აღწერა უნდა შეიცავდეს მინიმუმ 5 სიტყვას');
+    validateField(transactionTypeInputs[0], Array.from(transactionTypeInputs).some(input => input.checked), 'გთხოვთ აირჩიოთ გაყიდვა ან გაქირავება');
+    validateField(agentSelect, agentSelect.value, 'გთხოვთ აირჩიოთ აგენტი');
 
     return isValid;
 }
 
 function showError(input, message) {
     input.style.borderColor = 'red';
-    const errorElement = input.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
+    let errorElement = input.nextElementSibling;
+    if (!errorElement || !errorElement.classList.contains('error-message')) {
+        errorElement = document.createElement('div');
+        errorElement.classList.add('error-message');
+        input.parentNode.insertBefore(errorElement, input.nextSibling);
     }
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    errorElement.style.color = 'red';
 }
 
 function resetError(input) {
@@ -241,6 +184,35 @@ function resetError(input) {
         errorElement.style.display = 'none';
     }
 }
+
+function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.style.display = 'block';
+            imagePreview.src = e.target.result;
+            uploadIcon.style.display = 'none';
+        }
+        reader.readAsDataURL(file);
+    }
+    validateForm();
+}
+
+[addressInput, zipCodeInput, priceInput, areaInput, bedroomInput, descriptionInput].forEach(input => {
+    input.addEventListener('input', validateForm);
+});
+
+[regionSelect, citySelect, agentSelect].forEach(select => {
+    select.addEventListener('change', validateForm);
+});
+
+imageInput.addEventListener('change', handleImageUpload);
+
+transactionTypeInputs.forEach(input => {
+    input.addEventListener('change', validateForm);
+});
+
 
 
 function createApartmentData() {
