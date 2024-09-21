@@ -289,7 +289,7 @@ function resetForm() {
 }
 
 function handleClose() {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 
