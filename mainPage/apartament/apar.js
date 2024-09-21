@@ -195,7 +195,7 @@ async function deleteApartment(id) {
 
 function setupEventListeners() {
     document.getElementById('back-button').addEventListener('click', () => {
-        window.location.href = '/mainPage/main.html';
+        window.location.href = '/mainPage/index.html';
     });
 
     document.querySelector('.del-list').addEventListener('click', () => {
@@ -220,7 +220,7 @@ function setupEventListeners() {
       if (apartmentId) {
         const deleted = await deleteApartment(apartmentId);
         if (deleted) {
-          window.location.href = '/mainPage/main.html';
+          window.location.href = '/mainPage/index.html';
         } else {
           alert('Failed to delete apartment. Please try again.');
         }
