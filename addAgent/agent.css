@@ -1,0 +1,164 @@
+* {
+  font-family: "FiraGO";
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 50px 0;
+  
+}
+
+form {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 0 0 30px;
+  border-radius: 8px;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 20px 0;
+}
+
+.address p {
+  font-size: 15px;
+}
+
+.address label {
+  font-weight: bold;
+}
+
+
+.grid-address {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+input[type="text"]{
+  max-width: 450px;
+  padding: 8px;
+  margin: 0 0 10px 0 ;
+  border: 1px solid #808A93;
+  border-radius: 10px;
+}
+
+.photo-upload {
+  font-weight: bold;
+}
+
+.upload-container {
+  width: 98%;
+  height: 100px;
+  border: 1px dashed #2D3648;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.upload-container:hover {
+  background-color: #f8f8f8;
+}
+
+.upload-icon {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.upload-icon::before,
+.upload-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #666;
+  }
+
+.upload-icon::before {
+  width: 2px;
+  height: 16px;
+  top: 7px;
+  left: 14px;
+}
+
+.upload-icon::after {
+  width: 16px;
+  height: 2px;
+  top: 14px;
+  left: 7px;
+}
+
+#file-input {
+  display: none;
+}
+
+#image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 40px 10px 0 0;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+button[type="submit"] {
+  background-color: #F93B1D;
+  color: #FFFFFF;
+  border-radius: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #DF3014;
+}
+
+button[type="close"] {
+  background-color: white;
+  color: #F93B1D;
+  border: 1px solid #F93B1D;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+button[type="close"]:hover {
+  background-color: #F93B1D;
+  color: #FFFFFF;
+}
+
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  display: none;
+}

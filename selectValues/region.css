@@ -1,0 +1,47 @@
+body {
+  font-family: "FiraGO";
+  background-color: #f0f0f0;
+  margin: 0;
+}
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 570px;
+  height: auto; 
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+.submit-btn button {
+  background-color: #F93B1D;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 20px;
+  width: 100px;
+  height: auto;
+}
+
+ .submit-btn {
+  display: flex;
+  justify-content: flex-end;
+}

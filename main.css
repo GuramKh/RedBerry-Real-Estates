@@ -1,0 +1,339 @@
+@font-face {
+  font-family: "FiraGO";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(./files/firago-latin-500-italic.woff2) format("woff2"),
+    url(./files/firago-latin-500-italic.woff) format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  font-family: "FiraGO";
+}
+
+body {
+  overflow: auto;
+}
+
+header {
+  font-size: 15px;
+  padding: 38px 162px 38px 162px;
+  border: 1px solid #dbdbdb;
+}
+
+button {
+  border: 0;
+}
+
+nav {
+  display: flex;
+  margin: 50px 130px 20px 130px;
+}
+
+.filters {
+  display: flex;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 50px;
+  color: #021526;
+  width: 610px;
+  height: 40px;
+}
+
+.filters div {
+  font-size: 13px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-list {
+  border: 1px solid #f93b1d;
+  margin-left: 340px;
+  padding: 10px;
+  background-color: #f93b1d;
+  border-radius: 10px;
+}
+
+.add-list button {
+  background-color: #f93b1d;
+  color: white;
+  cursor: pointer;
+}
+
+.add-agent {
+  margin-left: 20px;
+  border: 1px solid #f93b1d;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.add-agent button {
+  color: #f93b1d;
+  background-color: white;
+  cursor: pointer;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 50px 130px 20px 130px;
+}
+
+.property-card {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 20px;
+  width: 300px;
+  height: 350px;
+  position: relative;
+  text-decoration: none;
+}
+
+.property-card h3 {
+  padding: 0 0 10px 10px;
+}
+
+.image {
+  max-width: 100%;
+  border-radius: 20px;
+  height:240px;
+  margin-bottom: 15px;
+}
+
+.rental {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 10px;
+}
+
+h3 {
+  color: black;
+}
+
+.info {
+  display: flex;
+  font-size: 17px;
+  color: rgba(2, 21, 38, 0.7);
+}
+
+.info div {
+  display: flex;
+  padding: 0 5px 10px 10px;
+  margin-left: 1px;
+}
+
+.bed {
+  height: 20px;
+}
+
+.vector,
+.sign {
+  height: 17px;
+}
+
+.address {
+  display: flex;
+  font-size: 14px;
+  color: rgba(2, 21, 38, 0.7);
+  padding: 0 0 10px 0;
+  margin-left: 10px;
+}
+
+.location {
+  margin-right: 5px;
+}
+
+.icon {
+  position: absolute;
+  top: 165px;
+}
+
+.x-region {
+  background-color: #fff;
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+.x-price {
+  background-color: #fff;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
+.x-size {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.x-bedroom {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+.clear-all-filters {
+  font-weight: 500;
+  color: rgba(2, 21, 38, 1);
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100px;
+  margin-left: 130px;
+  margin-top: -10px;
+  gap: 10px;
+}
+
+.size-list span {
+  display: flex;
+  width: 115px;
+  border: 1px solid rgba(219, 219, 219, 1);
+  padding: 6px 10px 6px 12px;
+  gap: 10px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.bedroom-size span {
+  display: flex;
+  width: 50px;
+  border: 1px solid rgba(219, 219, 219, 1);
+  padding: 8px 0 6px 10px;
+  gap: 10px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.price-list span {
+  display: flex;
+  width: 170px;
+  border: 1px solid rgba(219, 219, 219, 1);
+  padding: 8px 10px 6px 12px;
+  gap: 10px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.region-list {
+  display: flex;
+  gap: 10px;
+}
+
+.region-list span {
+  display: flex;
+  border: 1px solid rgba(219, 219, 219, 1);
+  padding: 6px 10px 6px 10px;
+  gap: 10px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+
+.region-popup {
+  display: none;
+  width: 612px;
+  height: 260px;
+  position: absolute;
+  top: 210px;
+  left: 130px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+}
+
+.region-popup iframe {
+  width: 610px;
+  height: 258px;
+  overflow: hidden;
+  border-radius: 5px;
+  
+}
+
+.price-popup {
+  display: none;
+  width: 612px;
+  height: 260px;
+  position: absolute;
+  top: 210px;
+  left: 280px;
+}
+
+.price-popup iframe {
+  overflow: hidden;
+  width: 700px;
+  height: 400px;
+}
+
+.size-popup {
+  display: none;
+  width: 612px;
+  height: 260px;
+  position: absolute;
+  top: 210px;
+  left: 450px;
+}
+
+.size-popup iframe {
+  overflow: hidden;
+  width: 700px;
+  height: 400px;
+}
+
+.bedroom-popup {
+  display: none;
+  width: 612px;
+  height: 260px;
+  position: absolute;
+  top: 210px;
+  left: 570px;
+}
+
+.bedroom-popup iframe {
+  overflow: hidden;
+  width: 290px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.pop-up {
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-up iframe {
+  height: 600px;
+  width: 900px;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid black;
+}

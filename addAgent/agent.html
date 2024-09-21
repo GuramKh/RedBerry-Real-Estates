@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>აგენტის დამატება - Redberry</title>
+    <link rel="stylesheet" href="agent.css">
+</head>
+<body>
+    <form>
+        <header>
+            <h1>აგენტის დამატება</h1>
+        </header>
+        
+        <div class="grid-address">
+            <div class="address">
+                <label for="name">სახელი *</label>
+                <input type="text" id="name" required>
+                <span class="error-message"></span>
+            </div>
+            <div class="address">
+                <label for="lname">გვარი</label>
+                <input type="text" id="lname" required>
+                <span class="error-message"></span>
+            </div>
+            <div class="address">
+                <label for="mail">ელ-ფოსტა*</label>
+                <input type="text" id="mail" required>
+                <p>&#10003; გამოიყენეთ @redberry.ge ფოსტა</p>
+            </div>
+            <div class="address">
+                <label for="number">ტელეფონის ნომერი</label>
+                <input type="text" id="number" required>
+                <p>&#10003; მხოლოდ რიცხვები</p>
+            </div>
+        </div>
+        
+        
+        <div>
+            <label for="file-input" class="photo-upload">ატვირთეთ ფოტო *</label>
+            <label for="file-input" class="upload-container">
+                <div class="upload-icon"></div>
+                <img id="image-preview" alt="Image preview" style="display: none;">
+            </label>
+            <input type="file" id="file-input" name="file-input" accept="image/*" required>
+            <span class="error-message"></span>
+        </div>
+        
+
+
+        <div class="buttons">
+            <button type="close" id="close-button">გაუქმება</button>
+            <button type="submit" id="submit-button">დაამატე აგენტი</button>
+        </div>
+    </form>
+
+    <script src="agent.js"></script>
+</body>
+</html>

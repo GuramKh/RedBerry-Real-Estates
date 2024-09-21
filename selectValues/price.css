@@ -1,0 +1,88 @@
+body {
+  font-family: "FiraGO";
+  display: flex;
+  width: 350px;
+  margin: 0;
+  
+}
+.container {
+  background-color: white;
+  border: 1px solid rgba(219, 219, 219, 1);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(2, 21, 38, 0.08);
+  width: 350px;
+}
+h2 {
+  color: rgba(2, 21, 38, 1);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+
+
+
+input[type="text"] {
+  width: 130px;
+  padding: 8px;
+  border: 1px solid rgba(128, 138, 147, 1);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.error {
+  border: 1px solid red;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.price-lists {
+  display: flex;
+  justify-content: space-between;
+}
+.price-list {
+  width: 45%;
+}
+.price-list h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(2, 21, 38, 1);
+}
+.price-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.price-list li {
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 54, 72, 1);
+}
+.choose {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  padding: 10px 15px 10px 15px;
+  background-color: rgba(249, 59, 29, 1);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+button:hover {
+  background-color: rgba(223, 48, 20, 1);
+}

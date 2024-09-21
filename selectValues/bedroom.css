@@ -1,0 +1,48 @@
+body {
+  font-family: "FiraGO";
+  display: flex;
+  width: 250;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+.container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 250px;
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+.input {
+  display: flex;
+  justify-content: flex-end;
+}
+.quantity {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid rgba(128, 138, 147, 1);
+  border-radius: 8px;
+  color: rgba(2, 21, 38, 0.4);
+  background-color: rgba(255, 255, 255, 1);
+}
+.select-button {
+  background-color: rgba(249, 59, 29, 1);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.select-button:hover {
+  background-color: rgba(223, 48, 20, 1);
+}

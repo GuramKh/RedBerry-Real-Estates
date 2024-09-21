@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "FiraGO";
+}
+
+body {
+  background-color: #f9f9f9;
+  overflow: auto;
+}
+
+header {
+  font-size: 10px;
+  padding: 38px 162px 38px 162px;
+  border: 1px solid #DBDBDB;
+}
+
+
+
+main {
+  margin: 0 0 0 160px;
+}
+
+.property-details {
+  display: flex;
+  gap: 50px;
+  margin: 30px 0 0 0;
+}
+
+.back-button {
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 40px 0 0 0;
+}
+
+.property-image {
+  position: relative; 
+}
+
+.property-image img {
+  width: 700px;
+  height: 600px;
+  border-radius: 20px;
+}
+
+.info-list p {
+  color: #808A93;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-end;
+  color: #808A93;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.property-info {
+  margin: 20px 0 0 0;
+  width: 503px;
+}
+
+.property-info h1 {
+  font-size: 48px;
+  color: #021526;
+}
+
+.address  {
+  padding-left: 20px;
+}
+
+h3 {
+  margin: 20px 0 0 20px;
+}
+
+.size p {
+  padding: 10px 0 10px 20px;
+}
+
+.address, .size {
+  display: flex;
+  line-height: 20px;
+  font-size: 16px;
+  color: #808A93;
+}
+
+.description {
+  margin: 50px 0;
+  line-height: 24x;
+  font-size: 16px;
+  color: #808A93;
+  width: 450px;
+}
+
+.agent-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 30px 0 0 20px;
+}
+
+.agent-photo {
+  display: flex;
+  flex-direction: row;
+}
+
+.agent-photo div {
+  margin: 10px 0 0 10px;
+}
+
+.agent-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.agent-name {
+  font-weight: 400;
+  color: #021526;
+}
+
+.agent-contacts {
+  margin-bottom: 20px;
+}
+
+.agent {
+  color: #676E76;
+}
+
+.agent-contacts {
+  color: #808A93;
+  line-height: 25px;
+}
+
+.del-list {
+  background-color: white;
+  color: #676E76;
+  font-weight: 500w;
+  border: 1px solid #666;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.del-list:hover {
+  background-color: rgba(128, 138, 147, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.related-properties {
+  margin-top: 50px;
+}
+
+.related-properties h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #021526;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 0.2fr);
+  gap: 80px;
+}
+
+.property-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 300px;
+  margin-right: -100px;
+}
+
+.property-card img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.scroll-left {
+  position: absolute;
+  left: 100px;
+  top: 1100px;
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.scroll-right {
+  position: absolute;
+  top: 1100px;
+  right: 110px;
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.center-overlay {
+  position: fixed;
+  top: 350px;
+  left: 600px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+#center {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 30%;
+  max-height: 25%;
+  overflow: auto;
+}
+
+.delete-confirmation {
+  position: relative;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(45, 54, 72, 1);
+  padding-bottom: 20px;
+}
+
+.cancel, .confirm {
+  margin: 10px;
+}
+
+.close-button {
+  position: absolute;
+  border: 0;
+  background-color: #fff;
+  top: -35px;
+  left: 325px;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.cancel {
+  background-color: white;
+  color: rgba(249, 59, 29, 1);
+  border: 1px solid rgba(249, 59, 29, 1);
+}
+.confirm {
+  background-color: rgba(249, 59, 29, 1);
+  color: #fff;
+}
+
+.confirm:hover {
+  background-color: rgba(223, 48, 20, 1);
+}
+
+.cancel:hover {
+  color: #fff;
+  background-color: rgba(249, 59, 29, 1);
+}
+
+.address {
+  margin-top: 10px;
+}
+
+.size {
+  display: flex;
+  font-size: 17px;
+  color: rgba(2, 21, 38, 0.7);
+}
+
+.size p {
+  display: flex;
+  padding: 0 5px 10px 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.bed {
+  height: 20px;
+}
+
+.vector,
+.sign {
+  height: 17px;
+}
