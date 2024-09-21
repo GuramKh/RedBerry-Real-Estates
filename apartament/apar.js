@@ -72,16 +72,16 @@ function displayApartmentDetails(apartment) {
   if (infoList && apartment.city && apartment.address) {
       infoList.innerHTML = `
           <p>
-            <img src="/mainPage/svg/location-marker.png" class="location" alt="location">
+            <img src="../svg/location-marker.png" class="location" alt="location">
             ${apartment.city.name}, ${apartment.address}</p>
           <p>
-            <img src="/mainPage/svg/bed.png" class="bed" alt="bed">
+            <img src="../svg/bed.png" class="bed" alt="bed">
             ${apartment.area} მ²</p>
           <p>
-            <img src="/mainPage/svg/vector.png" class="vector" alt="bed">
+            <img src="../svg/vector.png" class="vector" alt="bed">
             ${apartment.bedrooms}</p>
           <p>
-             <img src="/mainPage/svg/sign.png" class="sign" alt="bed">
+             <img src="../svg/sign.png" class="sign" alt="bed">
              ${apartment.zip_code}</p>
       `;
   }
@@ -130,17 +130,17 @@ function displayRelatedProperties() {
             <img src="${apartment.image}" alt="${apartment.address}">
             <h3>${apartment.price.toLocaleString()} ₾</h3>
             <p class="address">
-              <img src="/mainPage/svg/location-marker.png" class="location" alt="location">
+              <img src="../svg/location-marker.png" class="location" alt="location">
               ${apartment.city.name}, ${apartment.address}</p>
             <div class="size">
                 <p>
-                  <img src="/mainPage/svg/bed.png" class="bed" alt="bed">
+                  <img src="../svg/bed.png" class="bed" alt="bed">
                   ${apartment.bedrooms}</p>
                 <p>
-                  <img src="/mainPage/svg/vector.png" class="vector" alt="bed">
+                  <img src="../svg/vector.png" class="vector" alt="bed">
                   ${apartment.area}m²</p>
                 <p>
-                  <img src="/mainPage/svg/sign.png" class="sign" alt="bed">
+                  <img src="../svg/sign.png" class="sign" alt="bed">
                   ${apartment.zip_code}</p>
             </div>
         `;
@@ -195,7 +195,7 @@ async function deleteApartment(id) {
 
 function setupEventListeners() {
     document.getElementById('back-button').addEventListener('click', () => {
-        window.location.href = '/mainPage/index.html';
+        window.location.href = 'index.html';
     });
 
     document.querySelector('.del-list').addEventListener('click', () => {
@@ -220,7 +220,7 @@ function setupEventListeners() {
       if (apartmentId) {
         const deleted = await deleteApartment(apartmentId);
         if (deleted) {
-          window.location.href = '/mainPage/index.html';
+          window.location.href = 'index.html';
         } else {
           alert('Failed to delete apartment. Please try again.');
         }
