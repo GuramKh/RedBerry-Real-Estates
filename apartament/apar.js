@@ -94,8 +94,8 @@ function displayApartmentDetails(apartment) {
   const agentInfo = document.querySelector('.agent-info');
   if (agentInfo && apartment.agent) {
       const agentPhotoElement = agentInfo.querySelector('.agent-photo img');
-      if (agentPhotoElement && apartment.agent.image) {
-          agentPhotoElement.src = apartment.agent.image;
+      if (agentPhotoElement && apartment.agent.avatar) {
+          agentPhotoElement.src = apartment.agent.avatar;
       }
 
       const agentNameElement = agentInfo.querySelector('.agent-name');
