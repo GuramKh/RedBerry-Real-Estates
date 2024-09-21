@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Listing</title>
+    <link rel="stylesheet" href="listings.css">
+</head>
+<body>
+    
+    <header>
+        <img src="../img/LOGO-023.png" alt="logo">
+    </header>
+    <h1>ლისტინგის დამატება</h1>
+    <form>
+        <div class="type">
+            <h3>გარიგების ტიპი</h3>
+            <div class="bargain-type">
+                <input type="radio" name="transaction-type" id="for-sale" checked>
+                <label for="for-sale">იყიდება</label>
+                <input type="radio" name="transaction-type" id="for-rent">
+                <label for="for-rent">ქირავდება</label>
+            </div>
+        </div>
+        
+        <h4>მდებარეობა</h4>
+        <div class="grid-address">
+            <div class="address">
+                <label for="city">მისამართი *</label>
+                <input type="text" id="city" required>
+                <p>&#10003; მინიმუმ ორი სიმბოლო</p>
+            </div>
+            <div class="address">
+                <label for="address">საფოსტო ინდექსი*</label>
+                <input type="text" id="address" required>
+                <p>&#10003; მხოლოდ რიცხვები</p>
+            </div>
+            <div class="address">
+                <label for="region">რეგიონი</label>
+                <select id="region" required>
+                    <option value="" ></option>
+                </select>
+            </div>
+            <div class="address">
+                <label for="district">ქალაქი</label>
+                <select id="district" required>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        
+        
+        <h4>ბინის დეტალები</h4>
+        <div class="grid-details">
+            <div class="address">
+                <label for="price">ფასი</label>
+                <input type="text" id="price" required>
+                <p>&#10003; მხოლოდ რიცხვები</p>
+            </div>
+            <div class="address">
+                <label for="area">ფართობი</label>
+                <input type="text" id="area" required>
+                <p>&#10003; მხოლოდ რიცხვები</p>
+            </div>
+            <div class="address">
+                <label for="bedroom-number">საძინებლების რაოდენობა *</label>
+                <input type="text" id="bedroom-number" required>
+                <p>&#10003; მხოლოდ რიცხვები</p>
+            </div>
+        </div>
+        
+        <div class="address">
+            <label for="details">აღწერა *</label>
+            <textarea id="details" required></textarea>
+            <p>&#10003; მინიმუმ ხუთი სიტყვა</p>
+        </div>
+        
+        <div class="address">
+            <label for="file-input">ატვირთეთ ფოტო *</label>
+            <label for="file-input" class="upload-container">
+                <div class="upload-icon"></div>
+                <img id="image-preview" alt="Image preview" style="display: none;">
+            </label>
+            <input type="file" id="file-input" accept="image/*" required>
+            <p class="error-message"></p>
+        </div>
+        
+        <div class="address">
+            <h3>აგენტი</h3>
+            <label for="agent">აირჩიე</label>
+            <select id="agent" required>
+                <option value="" ></option>
+            </select>
+        </div>
+        
+        <div class="buttons">
+            <button type="closeButton" id="go-back">გაუქმება</button>
+            <button type="submit">დაამატე ლისტინგი</button>
+        </div>
+    </form>
+
+    <script src="listing.js"></script>
+</body>
+</html>

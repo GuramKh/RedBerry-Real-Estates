@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedBerry Real Estate</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <header>
+      <img src="Img\LOGO-023.png" alt="logo">
+    </header>
+
+    <nav>
+      <div class="filters">
+        <div id="region-popup">
+          რეგიონი <img src="../mainPage/svg/icon-chevron-down.png" class="icon" alt="icon-chevron-down">
+        </div>
+        <div id="price-popup">
+          საფასო კატეგორია <img src="../mainPage/svg/icon-chevron-down.png" class="icon" alt="icon-chevron-down">
+        </div>
+        <div id="size-popup">
+          ფართობი <img src="../mainPage/svg/icon-chevron-down.png" class="icon" alt="icon-chevron-down">
+        </div>
+        <div id="bedroom-popup">
+          საძინებლების რაოდენობა <img src="../mainPage/svg/icon-chevron-down.png" class="icon" alt="icon-chevron-down">
+        </div>
+      </div>
+  
+      <div class="add-list">
+        <a href="addListing\listing.html"><button>+ ლისტინგის დამატება</button></a>
+      </div>
+      <div class="add-agent">
+        <button id="add-agent">+ აგენტის დამატება</button>
+      </div>
+               
+    </nav>
+
+    <div class="list">
+      <div class="region-list" id="region-list">
+      
+      </div>
+      <div class="price-list" id="price-list">
+
+      </div>
+      <div class="size-list" id="size-list">
+
+      </div>
+      <div class="bedroom-size" id="bedroom-list">
+
+      </div>
+      <button class="clear-all-filters" id="clear-all-filters">გასუფთავება</button>  
+    </div>
+    
+
+    <section class="properties-grid" id="properties-grid">
+         
+        
+    </section>
+
+    <div class="region-popup">
+      <iframe src="selectValues\selectRegion.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="price-popup">
+      <iframe src="selectValues/selectPrice.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="size-popup">
+      <iframe src="selectValues/selectSize.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="bedroom-popup">
+      <iframe src="selectValues/selectBedroom.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="pop-up">
+      <iframe src="addAgent\agent.html" frameborder="0" ></iframe>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
